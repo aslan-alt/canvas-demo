@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div模拟canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #canvas {
+            border: 1px solid red;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="canvas"></div>
+
+    <script>
+        canvas.onmousemove = (e) => {
+            console.log('xxx')
+            console.log(e.clientY)
+            //每次点击创建一个div
+            let div = document.createElement('div')
+            div.style.position = 'absolute'//使用绝对定位
+            div.style.left = e.clientX + 'px'//div的位置
+            div.style.top = e.clientY + 'px'
+
+            div.style.width = '6px'
+            div.style.height = '6px'
+            div.style.marginLeft = '-3px'//回半个身位，让鼠标居中在新建div
+            div.style.marginTop = '-3px'
+            div.style.backgroundColor = 'black'
+            div.style.borderRadius = '50%'
+            //插入节点
+            canvas.appendChild(div)
+            //
+        }
+    </script>
+</body>
+
+</html>
